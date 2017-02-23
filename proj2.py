@@ -66,12 +66,11 @@ base_url = 'https://www.si.umich.edu/directory?field_person_firstname_value=&fie
 r = requests.get(base_url,headers={'User-Agent': 'SI_CLASS'})
 soup = BeautifulSoup(r.text, "html.parser")
 current_page = (soup.find_all(class_='pager-current'))[0].contents
-print (current_page)
+# print (current_page)
 
 count = 1
 flag = True
 while flag:
-
 	flag = False
 	if int(current_page[0][0]) <= int(current_page[0][-1]):
 ###################  Extract Email-address from one page  ###################################
@@ -94,11 +93,8 @@ while flag:
 				soup = BeautifulSoup(r.text, "html.parser")
 				current_page = (soup.find_all(class_='pager-current'))[0].contents
 				flag = True
-
 	else:
 		flag = False
-
-
 
 
 
